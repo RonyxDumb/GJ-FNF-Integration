@@ -69,6 +69,7 @@ class GameJoltAPI // Connects to tentools.api.FlxGameJolt
     public static function connect() 
     {
         trace("Grabbing API keys...");
+        GJApi.init(Std.int(GJKeys.id), Std.string(GJKeys.key), false);
         GJApi.init(Std.int(GJKeys.id), Std.string(GJKeys.key), function(data:Bool){
             #if debug
             Main.gjToastManager.createToast(GameJoltInfo.imagePath, "Game " + (data ? "authenticated!" : "not authenticated..."), (!data ? "If you are a developer, check GJKeys.hx\nMake sure the id and key are formatted correctly!" : "Yay!"), false);
@@ -84,40 +85,37 @@ class GameJoltAPI // Connects to tentools.api.FlxGameJolt
      */
     public static function authDaUser(in1, in2, ?loginArg:Bool = false)
     {
-        if(!userLogin)
-        {
-            GJApi.authUser(in1, in2, function(v:Bool)
+        if (!userLogin)
             {
-                trace("user: "+(in1 == "" ? "n/a" : in1));
-                trace("token: "+in2);
-                if(v)
+                GJApi.authUser(in1, in2, function(v:Bool)
+                {
+                    trace("user: " + (in1 == "" ? "n/a" : in1));
+                    trace("token: " + in2);
+                    if (v)
                     {
-                        Main.gjToastManager.createToast(GameJoltInfo.imagePath, in1 + " SIGNED IN!", "CONNECTED TO GAMEJOLT", false);
                         trace("User authenticated!");
                         FlxG.save.data.gjUser = in1;
                         FlxG.save.data.gjToken = in2;
                         FlxG.save.flush();
                         userLogin = true;
                         startSession();
-                        if(loginArg)
+                        if (loginArg)
                         {
-                            GameJoltLogin.login=true;
+                            GameJoltLogin.login = true;
                             FlxG.switchState(new GameJoltLogin());
                         }
                     }
-                else 
+                    else
                     {
-                        if(loginArg)
+                        if (loginArg)
                         {
-                            GameJoltLogin.login=true;
+                            GameJoltLogin.login = true;
                             FlxG.switchState(new GameJoltLogin());
                         }
-                        Main.gjToastManager.createToast(GameJoltInfo.imagePath, "Not signed in!\nSign in to save GameJolt Trophies and Leaderboard Scores!", "", false);
                         trace("User login failure!");
-                        // FlxG.switchState(new GameJoltLogin());
                     }
-            });
-        }
+                });
+            }
     }
     
     /**
