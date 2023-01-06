@@ -1,25 +1,9 @@
 # GameJolt FNF Integration
 
-## This project is designed to be used with **Friday Night Funkin**. This allows you to add trohies in your GameJolt gamepage and award them to the user along with adding scores to leaderboard tables!
 
-### Included in the repo is the API to add trophies and the state (GameJoltLogin) to sign the user in.
-
-### Have any issues? Report them to the repo via <a href="https://github.com/TentaRJ/GameJolt-FNF-Integration/issues">Github Issues</a>!
-
-### -tenta
-
-# PLANS:
-
-### <a href="https://github.com/TentaRJ/GameJolt-FNF-Integration/projects/1">Github Project link</a>
-
-# REQUIREMENTS:
-
-I will be editing the API for this, meaning you have to download my custom haxelib library, <a href="https://github.com/TentaRJ/tentools">tentools</a>. 
-
-You also need to download and rebuild <a href="https://github.com/haya3218/systools">Haya's version of systools</a>.
 
 ### Run these in the terminal:
-```
+``` cmd
 haxelib git tentools https://github.com/TentaRJ/tentools.git
 haxelib git systools https://github.com/haya3218/systools
 haxelib run lime rebuild systools [windows, mac, linux]
@@ -42,6 +26,7 @@ Make sure to add `import GameJolt;` at the top of `main.hx`!
 To add your game's keys, you will need to make a file in the source folder named GJKeys.hx (filepath: ../source/GJKeys.hx).
 <br>
 In this file, you will need to add the GJKeys class with two public static variables, `id:Int` and `key:String`.
+The ID and API Key can be found in the FNF Gamejolt's page of your mod
 
 ### `source/GJKeys.hx` example:
 ```hx
