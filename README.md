@@ -26,7 +26,8 @@ Make sure to add `import GameJolt;` at the top of `main.hx`!
 To add your game's keys, you will need to make a file in the source folder named GJKeys.hx (filepath: ../source/GJKeys.hx).
 <br>
 In this file, you will need to add the GJKeys class with two public static variables, `id:Int` and `key:String`.
-The ID and API Key can be found in the FNF Gamejolt's page of your mod
+The ID and API Key can be found in the FNF Gamejolt's page of your mod.
+#To find your private key go to Dashboard -> Your Games -> YOUR GAME HERE -> Game API -> API Settings -> Private Key. Then Click "Show key".#
 
 ### `source/GJKeys.hx` example:
 ```hx
