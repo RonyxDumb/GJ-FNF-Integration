@@ -66,16 +66,12 @@ class GameJoltAPI // Connects to tentools.api.FlxGameJolt
      * Sets the game API key from GJKeys.api
      * Doesn't return anything
      */
-    public static function connect() 
+    public static function connect()
     {
-        trace("Grabbing API keys...");
-        GJApi.init(Std.int(GJKeys.id), Std.string(GJKeys.key), false);
-        GJApi.init(Std.int(GJKeys.id), Std.string(GJKeys.key), function(data:Bool){
-            #if debug
-            Main.gjToastManager.createToast(GameJoltInfo.imagePath, "Game " + (data ? "authenticated!" : "not authenticated..."), (!data ? "If you are a developer, check GJKeys.hx\nMake sure the id and key are formatted correctly!" : "Yay!"), false);
-            #end
-        });
+         trace("Grabbing API keys...");
+         GJApi.init(Std.int(GJKeys.id), Std.string(GJKeys.key), false); // works now?
     }
+    
 
     /**
      * Inline function to auth the user. Shouldn't be used outside of GameJoltAPI things.
