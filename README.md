@@ -2,34 +2,36 @@
 
 
 
-### Run these in the terminal:
+### Scrivi questo nel terminale (..cmd/!)
 ``` cmd
 haxelib git tentools https://github.com/TentaRJ/tentools.git
 haxelib git systools https://github.com/haya3218/systools
 haxelib run lime rebuild systools [windows, mac, linux]
 ```
 
-If you are going to be releasing the source code of a mod with this integration, you need to place a few things into `Project.xml`.
-### Place these into `Project.xml`:
+se devi rilasciare il codice sorgente della mod con quest'integrazione, devi aggiungere queste cose nel 'Project.xml'.
+### Metti questo in `Project.xml`:
 ```xml
 <haxelib name="tentools" />
 <haxelib name="systools" />
 <ndll name="systools" haxelib="systools" />
 ```
 
-### Once that is all done, you can place `GameJolt.hx` into the `source/` folder of your project!
+### Dopo che lo hai fatto, puoi inserire il file `GameJolt.hx` nella cartella `source/` del tuo progetto!
 
 # SETUP (GAMEJOLT):
 
-Make sure to add `import GameJolt;` at the top of `main.hx`!
+Assicurati che aggiungi `import GameJolt;` all'inizio di `Main.hx`!
 
-To add your game's keys, you will need to make a file in the source folder named GJKeys.hx (filepath: ../source/GJKeys.hx).
+Per aggiungere i game's keys, hai bisogno di creare un file chiamato "GJKeys.hx" (posizione[della cartella]: ../source/GJKeys.hx).
 <br>
-In this file, you will need to add the GJKeys class with two public static variables, `id:Int` and `key:String`.
-The ID and API Key can be found in the FNF Gamejolt's page of your mod.
+In questo file, hai bisgno di aggiungere i GJKeys class con due variabili statiche, `id:Int` and `key:String`.
+
+### PER CHI NON SA DOVE
+L'ID e le API Key si trovano nella pagina GameJolt della tua MOD.
 *To find your private key go to Dashboard -> Your Games -> YOUR GAME HERE -> Game API -> API Settings -> Private Key. Then Click "Show key".*
 
-### `source/GJKeys.hx` example:
+### `source/GJKeys.hx` esempio:
 ```hx
 package;
 class GJKeys
@@ -38,9 +40,7 @@ class GJKeys
     public static var key:String = ""; // Put your game's private API key here
 }
 ```
-### **DO NOT SHARE YOUR GAME'S API KEY! You can add `source/GJKeys.hx` to a `.gitignore` file to make sure no one grabs the key! If someone gets it, they can send false data!**
-
-### You can find your game's API key and ID code within the game page's settngs under the game API tab.
+### NON RENDERE PUBBLICI I TUOI ID E API KEY DEL GIOCO, PERCHE' CHIUNQUE POTREBBE MANDARE FALSE INFORMAZIONI!!!
 
 # SETUP (TOASTS):
 
